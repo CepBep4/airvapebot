@@ -1,4 +1,4 @@
-HOST = 'http://213.171.12.123:5000'
+HOST = 'https://cepbep4-airvapebot-3c83.twc1.net/api'
 
 urls = {
     'user': f'{HOST}/api/user',
