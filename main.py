@@ -3,8 +3,11 @@ from urls import urls, urls_admin
 from dbcontrol import base_get, base_get_all, base_edit , base_add
 import json
 from random import randint
+import os
+from handlenewcase import add_case
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = 'case_handle'
 
 @app.route('/')
 def index():
@@ -126,7 +129,18 @@ def open_case_first():
             'case_info_for_user':{'case_id':case['id'], 'win_item':item_win, 'number_raffle':len(base_get_all('history'))}
         }
     )
-    
+
+@app.route('/upload', methods=['POST'])
+def handle_file_upload():
+    if request.method == 'POST':
+        uploaded_files = request.files.getlist("file")
+        for uploaded_file in uploaded_files:
+            filename = uploaded_file.filename
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            uploaded_file.save(file_path)
+        add_case(fp=file_path)
+        return"Файлы успешно загружены в папку 'uploads'!"
+
 @app.after_request
 def allow_anyone(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
