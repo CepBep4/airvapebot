@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, Text, Boolean, JSON, Float
+from sqlalchemy import create_engine, Column, Integer, Text, Boolean, JSON, Float, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from loggs import write_log
@@ -16,7 +16,7 @@ Base = declarative_base()
 class User(Base):
     __tablename__ = "user"
     id = Column(Integer, autoincrement=True, primary_key=True)
-    username = Column(Text, nullable=False, unique=True)
+    username = Column(String(256), nullable=False, unique=True)
     chat_id = Column(Integer, nullable=True, unique=True)
     balance = Column(Integer, nullable=True)
     case_info = Column(JSON, nullable=True)
@@ -42,10 +42,10 @@ class User(Base):
 class Case(Base):
     __tablename__ = "case"
     id = Column(Integer, autoincrement=True, primary_key=True)
-    name = Column(Text, nullable=True, unique=True)
+    name = Column(String(256), nullable=True, unique=True)
     content = Column(JSON, nullable=True)
     сhance = Column(JSON, nullable=True)
-    photo = Column(Text, nullable=True, unique=True)
+    photo = Column(String(256), nullable=True, unique=True)
     
     def get_val(self):
         return {
@@ -62,7 +62,7 @@ class History(Base):
     id = Column(Integer, autoincrement=True, primary_key=True)
     case_id = Column(Integer, nullable=True)
     number_raffle = Column(Integer, nullable=True)
-    prize = Column(Text, nullable=True)
+    prize = Column(String(256), nullable=True)
     
     def get_val(self):
         return {
@@ -76,9 +76,9 @@ class History(Base):
 class Promo(Base):
     __tablename__ = "promo"
     id = Column(Integer, autoincrement=True, primary_key=True)
-    name = Column(Text, nullable=True)
+    name = Column(String(256), nullable=True)
     count = Column(Integer, nullable=True)
-    name_prize = Column(Text, nullable=True)
+    name_prize = Column(String(256), nullable=True)
     chance = Column(Integer, nullable=True)
     
     def get_val(self):
@@ -156,7 +156,7 @@ def base_add(table,js):
 
         #Выдача базы
         new = table(**js)
-        # new = table(username = 'text', balance = 100, chat_id = 100)
+        # new = table(username = 'String(256)', balance = 100, chat_id = 100)
         session.add(new)
         
         session.commit()
