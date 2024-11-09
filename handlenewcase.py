@@ -1,6 +1,7 @@
 import csv
 from urls import HOST
 from requests import post
+from dbcontrol import base_add
 
 def add_case(fp: str):
     with open(fp, 'r') as file:
@@ -16,10 +17,8 @@ def add_case(fp: str):
         
     for i in case:
         chance[i[0]]=int(i[1])
-        
-    print(chance)
     
-    rq = post(f'{HOST}/case', json={
+    base_add('case',{
         'id':0,
         'name':fp.replace('case_handle/','').replace('.csv',''),
         'content':content,
@@ -27,6 +26,6 @@ def add_case(fp: str):
         'photo':''
     })
     
-    print(rq.text)
+    print('Кейс добавлен')
 if __name__ == "__main__":
     add_case('static/case_handle/test.csv')
