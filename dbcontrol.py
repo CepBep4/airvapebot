@@ -45,7 +45,7 @@ class Case(Base):
     name = Column(String(256), nullable=True, unique=True)
     content = Column(JSON, nullable=True)
     сhance = Column(JSON, nullable=True)
-    photo = Column(String(256), nullable=True, unique=True)
+    photo = Column(String(256), nullable=True, unique=False)
     
     def get_val(self):
         return {
