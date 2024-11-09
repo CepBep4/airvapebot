@@ -44,7 +44,7 @@ class Case(Base):
     id = Column(Integer, autoincrement=True, primary_key=True)
     name = Column(String(256), nullable=True, unique=True)
     content = Column(JSON, nullable=True)
-    сhance = Column(JSON, nullable=True)
+    chance = Column(JSON, nullable=True)
     photo = Column(String(256), nullable=True, unique=False)
     
     def get_val(self):
@@ -52,7 +52,7 @@ class Case(Base):
             'id':self.id,
             'name':self.name,
             'content':self.content,
-            'chance':self.сhance, 
+            'chance':self.chance, 
             'photo':self.photo
         }
 
