@@ -81,6 +81,7 @@ def open_case():
     })
 
     rulette = [list(case['content'])[randint(0,len(case['content'])-1)] for x in range(100)]
+    rulette[51]=item_win
     
     return jsonify(
         {
@@ -125,6 +126,7 @@ def open_case_first():
     })
 
     rulette = [list(case['content'])[randint(0,len(case['content'])-1)] for x in range(100)]
+    rulette[51]=item_win
     
     return jsonify(
         {
