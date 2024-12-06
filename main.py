@@ -79,13 +79,16 @@ def open_case():
         'number_raffle': len(base_get_all('history')),
         'prize':item_win
     })
+
+    rulette = [list(case['content'])[randint(0,len(case['content'])-1)] for x in range(100)]
     
     return jsonify(
         {
             'case_id':case['id'],
             'win_item':item_win,
             'number_raffle':len(base_get_all('history')),
-            'case_info_for_user':{'case_id':case['id'], 'win_item':item_win, 'number_raffle':len(base_get_all('history'))}
+            'case_info_for_user':{'case_id':case['id'], 'win_item':item_win, 'number_raffle':len(base_get_all('history'))},
+            'rulette':rulette
         }
     )
     
@@ -120,13 +123,16 @@ def open_case_first():
         'number_raffle': len(base_get_all('history')),
         'prize':item_win
     })
+
+    rulette = [list(case['content'])[randint(0,len(case['content'])-1)] for x in range(100)]
     
     return jsonify(
         {
             'case_id':case['id'],
             'win_item':item_win,
             'number_raffle':len(base_get_all('history')),
-            'case_info_for_user':{'case_id':case['id'], 'win_item':item_win, 'number_raffle':len(base_get_all('history'))}
+            'case_info_for_user':{'case_id':case['id'], 'win_item':item_win, 'number_raffle':len(base_get_all('history'))},
+            'rulette':rulette
         }
     )
 
