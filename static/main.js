@@ -1,6 +1,6 @@
 const LOGIN = "test";
 const PASSWORD = "123";
-const HOST = 'https://cepbep4-airvapebot-3c83.twc1.net'
+const HOST = 'https://cepbep4-airvapebot-b471.twc1.net'
 
 class State {
     constructor() {
