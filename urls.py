@@ -1,4 +1,4 @@
-HOST = 'https://cepbep4-airvapebot-3c83.twc1.net/api'
+HOST = 'https://cepbep4-airvapebot-b471.twc1.net/api'
 
 urls = {
     'user': f'{HOST}/api/user',
