@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 from loggs import write_log
 from traceback import print_exc
 
-DATABASE_URL = "mysql://gen_user:%7DXpM%5CkD0%2C9AMbG@213.171.3.234:3306/default_db"#f"sqlite:///db.sqlite3"
+DATABASE_URL = "mysql://gen_user:g1M-j!N!%+=m\w@94.228.112.223:3306/default_db"#f"sqlite:///db.sqlite3"
 
 # Создание объекта Engine
 engine = create_engine(DATABASE_URL)
