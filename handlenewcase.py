@@ -7,7 +7,7 @@ def add_case(fp: str):
     with open(fp, 'r') as file:
         case_d = file.read()
     
-    case = [x.split(',') for x in case_d.split('\n')]
+    case = [x.split(';') for x in case_d.split('\n')]
     
     content = {}
     chance = {}
