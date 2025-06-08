@@ -7,7 +7,7 @@ HOST = 'https://cepbep4-airvapebot-b471.twc1.net'
 
 def register_new_user(uid,username):
     base_add('user',{
-        'balance':5,
+        'balance':0,
         'case_info':{},
         'chat_id':uid,
         'id':0,
